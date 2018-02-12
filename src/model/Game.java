@@ -7,21 +7,21 @@ public class Game {
 	private String name;
 	private String description;
 	private String title;
-	private String image;
+	private String image_path;
 	private Date open_date;
 	private String state;
 	
 	public Game() {		
 	}
 	
-	public Game(int game_no, String name, String description, String title, String image, Date open_date,
+	public Game(int game_no, String name, String description, String title, String image_path, Date open_date,
 			String state) {
 		super();
 		this.game_no = game_no;
 		this.name = name;
 		this.description = description;
 		this.title = title;
-		this.image = image;
+		this.image_path = image_path;
 		this.open_date = open_date;
 		this.state = state;
 	}
@@ -58,12 +58,12 @@ public class Game {
 		this.title = title;
 	}
 
-	public String getImage() {
-		return image;
+	public String getImage_path() {
+		return image_path;
 	}
 
-	public void setImage(String image) {
-		this.image = image;
+	public void setImage_path(String image_path) {
+		this.image_path = image_path;
 	}
 
 	public Date getOpen_date() {
@@ -88,7 +88,7 @@ public class Game {
 		int result = 1;
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + game_no;
-		result = prime * result + ((image == null) ? 0 : image.hashCode());
+		result = prime * result + ((image_path == null) ? 0 : image_path.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((open_date == null) ? 0 : open_date.hashCode());
 		result = prime * result + ((state == null) ? 0 : state.hashCode());
@@ -121,8 +121,8 @@ public class Game {
 		builder.append(description);
 		builder.append(", title=");
 		builder.append(title);
-		builder.append(", image=");
-		builder.append(image);
+		builder.append(", image_path=");
+		builder.append(image_path);
 		builder.append(", open_date=");
 		builder.append(open_date);
 		builder.append(", state=");
