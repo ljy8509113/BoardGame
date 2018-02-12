@@ -38,3 +38,6 @@ target/
 ehthumbs.db
 Icon?
 Thumbs.db
+
+#db property
+jdbc.properties
