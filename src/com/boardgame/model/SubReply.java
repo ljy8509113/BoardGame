@@ -1,32 +1,32 @@
-package model;
+package com.boardgame.model;
 
 import java.util.Date;
 
 public class SubReply {
-	private int user_no;		//외래키 user
+	private int userNo;		//외래키 user
 	private String content;		//내용
-	private int reple_no;		//외래키 reple reple_no
+	private int repleNo;		//외래키 reple repleNo
 	private Date date;			//생성일
-	private boolean is_active;	//활성화 1, 삭제시 0
+	private boolean isActive;	//활성화 1, 삭제시 0
 	
 	public SubReply() {
 	}
 	
-	public SubReply(int user_no, String content, int reple_no, Date date, boolean is_active) {
+	public SubReply(int userNo, String content, int repleNo, Date date, boolean isActive) {
 		super();
-		this.user_no = user_no;
+		this.userNo = userNo;
 		this.content = content;
-		this.reple_no = reple_no;
+		this.repleNo = repleNo;
 		this.date = date;
-		this.is_active = is_active;
+		this.isActive = isActive;
 	}
 
-	public int getUser_no() {
-		return user_no;
+	public int getuserNo() {
+		return userNo;
 	}
 
-	public void setUser_no(int user_no) {
-		this.user_no = user_no;
+	public void setuserNo(int userNo) {
+		this.userNo = userNo;
 	}
 
 	public String getContent() {
@@ -37,12 +37,12 @@ public class SubReply {
 		this.content = content;
 	}
 
-	public int getReple_no() {
-		return reple_no;
+	public int getrepleNo() {
+		return repleNo;
 	}
 
-	public void setReple_no(int reple_no) {
-		this.reple_no = reple_no;
+	public void setrepleNo(int repleNo) {
+		this.repleNo = repleNo;
 	}
 
 	public Date getDate() {
@@ -53,12 +53,12 @@ public class SubReply {
 		this.date = date;
 	}
 
-	public boolean isIs_active() {
-		return is_active;
+	public boolean isActive() {
+		return isActive;
 	}
 
-	public void setIs_active(boolean is_active) {
-		this.is_active = is_active;
+	public void setIsActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 
 	@Override
@@ -67,9 +67,9 @@ public class SubReply {
 		int result = 1;
 		result = prime * result + ((content == null) ? 0 : content.hashCode());
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
-		result = prime * result + (is_active ? 1231 : 1237);
-		result = prime * result + reple_no;
-		result = prime * result + user_no;
+		result = prime * result + (isActive ? 1231 : 1237);
+		result = prime * result + repleNo;
+		result = prime * result + userNo;
 		return result;
 	}
 
@@ -82,7 +82,7 @@ public class SubReply {
 		if (getClass() != obj.getClass())
 			return false;
 		SubReply other = (SubReply) obj;
-		if(this.reple_no == other.reple_no && this.user_no == other.user_no)
+		if(this.repleNo == other.repleNo && this.userNo == other.userNo)
 			return true;
 		return false;
 	}
@@ -90,16 +90,16 @@ public class SubReply {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("SubReply [user_no=");
-		builder.append(user_no);
+		builder.append("SubReply [userNo=");
+		builder.append(userNo);
 		builder.append(", content=");
 		builder.append(content);
-		builder.append(", reple_no=");
-		builder.append(reple_no);
+		builder.append(", repleNo=");
+		builder.append(repleNo);
 		builder.append(", date=");
 		builder.append(date);
-		builder.append(", is_active=");
-		builder.append(is_active);
+		builder.append(", isActive=");
+		builder.append(isActive);
 		builder.append("]");
 		return builder.toString();
 	}

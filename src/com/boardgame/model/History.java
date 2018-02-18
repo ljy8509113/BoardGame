@@ -1,34 +1,34 @@
-package model;
+package com.boardgame.model;
 
 public class History {
-	private int user_no;
+	private int userNo;
 	private int total;
 	private int win;
 	private int lose;
 	private int stop;
-	private float winning_rate;
-	private int game_no;
+	private float winningRate;
+	private int gameNo;
 	
 	public History() {		
 	}
 	
-	public History(int user_no, int total, int win, int lose, int stop, float winning_rate, int game_no) {
+	public History(int userNo, int total, int win, int lose, int stop, float winningRate, int gameNo) {
 		super();
-		this.user_no = user_no;
+		this.userNo = userNo;
 		this.total = total;
 		this.win = win;
 		this.lose = lose;
 		this.stop = stop;
-		this.winning_rate = winning_rate;
-		this.game_no = game_no;
+		this.winningRate = winningRate;
+		this.gameNo = gameNo;
 	}
 
-	public int getUser_no() {
-		return user_no;
+	public int getuserNo() {
+		return userNo;
 	}
 
-	public void setUser_no(int user_no) {
-		this.user_no = user_no;
+	public void setuserNo(int userNo) {
+		this.userNo = userNo;
 	}
 
 	public int getTotal() {
@@ -63,33 +63,33 @@ public class History {
 		this.stop = stop;
 	}
 
-	public float getWinning_rate() {
-		return winning_rate;
+	public float getwinningRate() {
+		return winningRate;
 	}
 
-	public void setWinning_rate(float winning_rate) {
-		this.winning_rate = winning_rate;
+	public void setwinningRate(float winningRate) {
+		this.winningRate = winningRate;
 	}
 
-	public int getGame_no() {
-		return game_no;
+	public int getgameNo() {
+		return gameNo;
 	}
 
-	public void setGame_no(int game_no) {
-		this.game_no = game_no;
+	public void setgameNo(int gameNo) {
+		this.gameNo = gameNo;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + game_no;
+		result = prime * result + gameNo;
 		result = prime * result + lose;
 		result = prime * result + stop;
 		result = prime * result + total;
-		result = prime * result + user_no;
+		result = prime * result + userNo;
 		result = prime * result + win;
-		result = prime * result + Float.floatToIntBits(winning_rate);
+		result = prime * result + Float.floatToIntBits(winningRate);
 		return result;
 	}
 
@@ -102,7 +102,7 @@ public class History {
 		if (getClass() != obj.getClass())
 			return false;
 		History other = (History) obj;
-		if(other.game_no == this.game_no && other.user_no == this.user_no)
+		if(other.gameNo == this.gameNo && other.userNo == this.userNo)
 			return true;
 		return true;
 	}
@@ -110,8 +110,8 @@ public class History {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("History [user_no=");
-		builder.append(user_no);
+		builder.append("History [userNo=");
+		builder.append(userNo);
 		builder.append(", total=");
 		builder.append(total);
 		builder.append(", win=");
@@ -120,10 +120,10 @@ public class History {
 		builder.append(lose);
 		builder.append(", stop=");
 		builder.append(stop);
-		builder.append(", winning_rate=");
-		builder.append(winning_rate);
-		builder.append(", game_no=");
-		builder.append(game_no);
+		builder.append(", winningRate=");
+		builder.append(winningRate);
+		builder.append(", gameNo=");
+		builder.append(gameNo);
 		builder.append("]");
 		return builder.toString();
 	}

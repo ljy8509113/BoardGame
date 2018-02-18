@@ -1,37 +1,37 @@
-package model;
+package com.boardgame.model;
 
 import java.util.Date;
 
 public class Game {
-	private int game_no;
+	private int gameNo;
 	private String name;
 	private String description;
 	private String title;
-	private String image_path;
-	private Date open_date;
+	private String imagePath;
+	private Date openDate;
 	private String state;
 	
 	public Game() {		
 	}
 	
-	public Game(int game_no, String name, String description, String title, String image_path, Date open_date,
+	public Game(int gameNo, String name, String description, String title, String imagePath, Date openDate,
 			String state) {
 		super();
-		this.game_no = game_no;
+		this.gameNo = gameNo;
 		this.name = name;
 		this.description = description;
 		this.title = title;
-		this.image_path = image_path;
-		this.open_date = open_date;
+		this.imagePath = imagePath;
+		this.openDate = openDate;
 		this.state = state;
 	}
 
-	public int getGame_no() {
-		return game_no;
+	public int getgameNo() {
+		return gameNo;
 	}
 
-	public void setGame_no(int game_no) {
-		this.game_no = game_no;
+	public void setgameNo(int gameNo) {
+		this.gameNo = gameNo;
 	}
 
 	public String getName() {
@@ -58,20 +58,20 @@ public class Game {
 		this.title = title;
 	}
 
-	public String getImage_path() {
-		return image_path;
+	public String getimagePath() {
+		return imagePath;
 	}
 
-	public void setImage_path(String image_path) {
-		this.image_path = image_path;
+	public void setimagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 
-	public Date getOpen_date() {
-		return open_date;
+	public Date getopenDate() {
+		return openDate;
 	}
 
-	public void setOpen_date(Date open_date) {
-		this.open_date = open_date;
+	public void setopenDate(Date openDate) {
+		this.openDate = openDate;
 	}
 
 	public String getState() {
@@ -87,10 +87,10 @@ public class Game {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + game_no;
-		result = prime * result + ((image_path == null) ? 0 : image_path.hashCode());
+		result = prime * result + gameNo;
+		result = prime * result + ((imagePath == null) ? 0 : imagePath.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((open_date == null) ? 0 : open_date.hashCode());
+		result = prime * result + ((openDate == null) ? 0 : openDate.hashCode());
 		result = prime * result + ((state == null) ? 0 : state.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
@@ -105,7 +105,7 @@ public class Game {
 		if (getClass() != obj.getClass())
 			return false;
 		Game other = (Game) obj;
-		if(other.game_no == this.game_no)
+		if(other.gameNo == this.gameNo)
 			return true;
 		return false;
 	}
@@ -113,18 +113,18 @@ public class Game {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Game [game_no=");
-		builder.append(game_no);
+		builder.append("Game [gameNo=");
+		builder.append(gameNo);
 		builder.append(", name=");
 		builder.append(name);
 		builder.append(", description=");
 		builder.append(description);
 		builder.append(", title=");
 		builder.append(title);
-		builder.append(", image_path=");
-		builder.append(image_path);
-		builder.append(", open_date=");
-		builder.append(open_date);
+		builder.append(", imagePath=");
+		builder.append(imagePath);
+		builder.append(", openDate=");
+		builder.append(openDate);
 		builder.append(", state=");
 		builder.append(state);
 		builder.append("]");
