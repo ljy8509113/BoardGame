@@ -31,7 +31,7 @@ public class GameDao{
 	public List<Game> selectAll(){
 		List<Game> list = null;
 		try {
-			String sql = "select * from game where game_no = ?";
+			String sql = "select * from game";
 			list = template.query(sql, new BeanPropertyRowMapper<Game>(Game.class));
 		}catch(Exception e) {
 			e.printStackTrace();

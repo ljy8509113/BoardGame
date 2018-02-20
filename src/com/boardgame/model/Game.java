@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class Game {
 	private int gameNo;
-	private String name;
 	private String description;
 	private String title;
 	private String imagePath;
@@ -14,11 +13,10 @@ public class Game {
 	public Game() {		
 	}
 	
-	public Game(int gameNo, String name, String description, String title, String imagePath, Date openDate,
+	public Game(int gameNo, String description, String title, String imagePath, Date openDate,
 			String state) {
 		super();
 		this.gameNo = gameNo;
-		this.name = name;
 		this.description = description;
 		this.title = title;
 		this.imagePath = imagePath;
@@ -32,14 +30,6 @@ public class Game {
 
 	public void setgameNo(int gameNo) {
 		this.gameNo = gameNo;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getDescription() {
@@ -89,7 +79,6 @@ public class Game {
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + gameNo;
 		result = prime * result + ((imagePath == null) ? 0 : imagePath.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((openDate == null) ? 0 : openDate.hashCode());
 		result = prime * result + ((state == null) ? 0 : state.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
@@ -115,8 +104,6 @@ public class Game {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Game [gameNo=");
 		builder.append(gameNo);
-		builder.append(", name=");
-		builder.append(name);
 		builder.append(", description=");
 		builder.append(description);
 		builder.append(", title=");

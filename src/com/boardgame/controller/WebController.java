@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.boardgame.dao.GameDao;
 import com.boardgame.model.Game;
@@ -15,7 +16,7 @@ public class WebController {
 	@Autowired
 	GameDao gameDao;
 	
-	@RequestMapping("Main.do")
+	@RequestMapping("main.do")
 	public String mainGameList(Model model) {
 		List<Game> list = null;
 		
@@ -43,4 +44,10 @@ public class WebController {
 	public String getMacAddress() {
 		return "key";
 	}
+	
+	@RequestMapping(value="/adminLogin.do", method=RequestMethod.GET)
+	public String loginFrom(Model model) {
+		return "/admin/admin_login";
+	}
+	
 }
