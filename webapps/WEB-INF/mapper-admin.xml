@@ -7,8 +7,10 @@
   	<select id="select-account" parameterType="String" resultType="Admin">
   		 SELECT * FROM admin WHERE id = #{id}
   	</select>
-  	
   </mapper>
+  
+  
+    
   
   
   

@@ -12,12 +12,12 @@ public class WebController {
 	@Autowired
 	WebService webService;
 	
-	@RequestMapping("main.do")
-	public String mainGameList(Model model) {
-		
-		
-		return "main";
-	}
+//	@RequestMapping("main.do")
+//	public String mainGameList(Model model) {
+//		
+//		
+//		return "main";
+//	}
 	
 	@RequestMapping("Key.do")
 	public String getMacAddress() {
