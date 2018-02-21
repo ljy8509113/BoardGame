@@ -1,34 +1,30 @@
 package com.boardgame.model;
 
-import java.util.Date;
-
 public class Game {
-	private int gameNo;
+	private Integer gameNo;
 	private String description;
 	private String title;
 	private String imagePath;
-	private Date openDate;
 	private String state;
+	private String fileName;
 	
 	public Game() {		
 	}
 	
-	public Game(int gameNo, String description, String title, String imagePath, Date openDate,
-			String state) {
-		super();
+	public Game(Integer gameNo, String description, String title, String imagePath, String state, String fileName) {
 		this.gameNo = gameNo;
 		this.description = description;
 		this.title = title;
 		this.imagePath = imagePath;
-		this.openDate = openDate;
 		this.state = state;
+		this.fileName = fileName;
 	}
 
-	public int getgameNo() {
+	public int getGameNo() {
 		return gameNo;
 	}
 
-	public void setgameNo(int gameNo) {
+	public void setGameNo(int gameNo) {
 		this.gameNo = gameNo;
 	}
 
@@ -48,22 +44,6 @@ public class Game {
 		this.title = title;
 	}
 
-	public String getimagePath() {
-		return imagePath;
-	}
-
-	public void setimagePath(String imagePath) {
-		this.imagePath = imagePath;
-	}
-
-	public Date getopenDate() {
-		return openDate;
-	}
-
-	public void setopenDate(Date openDate) {
-		this.openDate = openDate;
-	}
-
 	public String getState() {
 		return state;
 	}
@@ -71,18 +51,21 @@ public class Game {
 	public void setState(String state) {
 		this.state = state;
 	}
+	
+	public String getImagePath() {
+		return imagePath;
+	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + gameNo;
-		result = prime * result + ((imagePath == null) ? 0 : imagePath.hashCode());
-		result = prime * result + ((openDate == null) ? 0 : openDate.hashCode());
-		result = prime * result + ((state == null) ? 0 : state.hashCode());
-		result = prime * result + ((title == null) ? 0 : title.hashCode());
-		return result;
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 	@Override
@@ -110,10 +93,10 @@ public class Game {
 		builder.append(title);
 		builder.append(", imagePath=");
 		builder.append(imagePath);
-		builder.append(", openDate=");
-		builder.append(openDate);
 		builder.append(", state=");
 		builder.append(state);
+		builder.append(", fileName=");
+		builder.append(fileName);
 		builder.append("]");
 		return builder.toString();
 	}
