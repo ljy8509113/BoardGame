@@ -7,17 +7,19 @@ public class Game {
 	private String coverImage;
 	private String state;
 	private String fileName;
+	private String version;
 	
 	public Game() {		
 	}
 	
-	public Game(Integer gameNo, String description, String title, String coverImage, String state, String fileName) {
+	public Game(Integer gameNo, String description, String title, String coverImage, String state, String fileName, String version) {
 		this.gameNo = gameNo;
 		this.description = description;
 		this.title = title;
 		this.coverImage = coverImage;
 		this.state = state;
 		this.fileName = fileName;
+		this.version = version;
 	}
 
 	public int getGameNo() {
@@ -67,6 +69,14 @@ public class Game {
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
+	
+	public String getVersion() {
+		return version;
+	}
+
+	public void setVersion(String version) {
+		this.version = version;
+	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -97,6 +107,8 @@ public class Game {
 		builder.append(state);
 		builder.append(", fileName=");
 		builder.append(fileName);
+		builder.append(", version=");
+		builder.append(version);
 		builder.append("]");
 		return builder.toString();
 	}
