@@ -9,8 +9,8 @@
   	</select>
   	
   	<insert id="insert-game" parameterType="Game">
-  		INSERT INTO game (title, description, file_name, state, image_path)
-  		VALUES (#{title}, #{description}, #{fileName}, #{state}, #{imagePath}) 
+  		INSERT INTO game (title, description, file_name, state, cover_image)
+  		VALUES (#{title}, #{description}, #{fileName}, #{state}, #{coverImage}) 
   	</insert>
   	
   	<select id="select-game" parameterType="String" resultType="Game">
@@ -19,7 +19,7 @@
   	
   	<update id="update-game" parameterType="Game">
   		UPDATE game SET title = #{title}, description = #{description}, file_name = #{fileName},
-  		image_path = #{imagePath}, state = #{state}
+  		cover_image = #{coverImage}, state = #{state}
   		WHERE game_no = #{gameNo}  
   	</update>
   	

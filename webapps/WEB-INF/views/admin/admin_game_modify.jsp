@@ -51,15 +51,16 @@
 			<!-- Example DataTables Card-->
 			<div class="card mb-3">
 				<div class="card-header">
-					<i class="fa fa-table"></i> 게임 등록
+					<i class="fa fa-table"></i> 게임 수정
 				</div>
-				<form action="adminGameRegist.do" method="post" enctype="multipart/form-data">
+				<form action="adminGameModify.do" method="post" enctype="multipart/form-data">
 					<div class="card-body">
-					<label> 게임명 : <input type="text" name="title"></label><br>
-					<label> 상태 : <input type="text" name="state"> (O:서비스중, C:서비스종료, D:개발중)</label><br>
-					<label> 설명 : <textarea rows="10" cols="50" name="description"></textarea></label><br> 
-					<label> 대표이미지 : <input type="file" name="coverImage"></label><br>
-					<label> Game File : <input type="file" name="gameFile"></label><br><br>
+					<input type="hidden" name="gameNo" value="${game.gameNo}"> 
+					<label> 게임명 : <input type="text" name="title" value="${game.title}"></label><br>
+					<label> 상태 : <input type="text" name="state" value="${game.state}"> (O:서비스중, C:서비스종료, D:개발중)</label><br>
+					<label> 설명 : <textarea rows="10" cols="50" name="description">${game.description}</textarea></label><br> 
+					<label> 대표이미지 : <input type="file" name="coverImage" value="${game.coverImage}"></label><br>
+					<label> Game File : <input type="file" name="gameFile" value="${game.fileName}"></label><br><br>
 					<input type="submit" class="btn btn-primary" id="toggleNavPosition" value="등록"> 
 					&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="adminGameList.do">취소</a>
 				</div>

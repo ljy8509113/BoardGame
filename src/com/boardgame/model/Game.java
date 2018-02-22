@@ -4,18 +4,18 @@ public class Game {
 	private Integer gameNo;
 	private String description;
 	private String title;
-	private String imagePath;
+	private String coverImage;
 	private String state;
 	private String fileName;
 	
 	public Game() {		
 	}
 	
-	public Game(Integer gameNo, String description, String title, String imagePath, String state, String fileName) {
+	public Game(Integer gameNo, String description, String title, String coverImage, String state, String fileName) {
 		this.gameNo = gameNo;
 		this.description = description;
 		this.title = title;
-		this.imagePath = imagePath;
+		this.coverImage = coverImage;
 		this.state = state;
 		this.fileName = fileName;
 	}
@@ -52,12 +52,12 @@ public class Game {
 		this.state = state;
 	}
 	
-	public String getImagePath() {
-		return imagePath;
+	public String getCoverImage() {
+		return coverImage;
 	}
 
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
+	public void setCoverImage(String coverImage) {
+		this.coverImage = coverImage;
 	}
 
 	public String getFileName() {
@@ -91,8 +91,8 @@ public class Game {
 		builder.append(description);
 		builder.append(", title=");
 		builder.append(title);
-		builder.append(", imagePath=");
-		builder.append(imagePath);
+		builder.append(", coverImage=");
+		builder.append(coverImage);
 		builder.append(", state=");
 		builder.append(state);
 		builder.append(", fileName=");

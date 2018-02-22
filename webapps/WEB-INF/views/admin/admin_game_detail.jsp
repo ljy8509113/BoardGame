@@ -35,17 +35,6 @@
   	$(document).ready(function(){
   		$("#navDiv").load("html/menu.html");  		
   	});
-  	
-  	function clickCell(gameNo){
-  		location.href="adminGameDetail.do?gameNo="+gameNo;  		
-  	}
-  	
-  	function changeTrColor(trObj, oldColor, newColor) {
-		trObj.style.backgroundColor = newColor;
-		trObj.onmouseout = function(){
-			trObj.style.backgroundColor = oldColor;
-		}
-	}
   </script>
 </head>
 
@@ -55,58 +44,15 @@
   </div>
   <div class="content-wrapper">
     <div class="container-fluid">
-      <!-- Example DataTables Card-->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> 게임 목록
-          <a class="btn btn-primary" href="adminGameRegist.do" id="toggleNavPosition" style="float:right">추가</a>
-        </div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>번호</th>
-                  <th>게임명</th>
-                  <th>상태</th>
-                </tr>
-              </thead>
-              <tbody>
-              	<c:choose>
-					<c:when test="${empty list}">
-        				<tr colspan="3">리스트가 존재하지 않습니다.</tr>
-    				</c:when>
-					<c:otherwise>
-        				<c:forEach items="${ list }" var="game">
-	        				<tr onclick="javascript:clickCell(${game.gameNo})"
-								onmouseover="javascript:changeTrColor(this, '#FFFFFF', '#F4FFFD')"
-								style="cursor:hand">
-	          					<td>${game.gameNo} </td>
-	                  			<td>${game.title}</td>
-	                  			<c:choose>
-	                  				<c:when test="${game.state eq 'D'}">
-	                  					<td>개발중</td>
-	                  				</c:when>
-	                  				<c:when test="${game.state eq 'O'}">
-	                  					<td>서비스중</td>
-	                  				</c:when>
-	                  				<c:when test="${game.state eq 'C'}">
-	                  					<td>서비스종료</td>
-	                  				</c:when>
-	                  				<c:otherwise>
-	                  					<td>-</td>
-	                  				</c:otherwise>
-	                  			</c:choose>           			
-	                		</tr>
-        				</c:forEach>
-    				</c:otherwise>
-				</c:choose>
-                
-              </tbody>
-            </table>
-          </div>
-        </div>        
-      </div>
+      <label>${game.gameNo}</label> <br>
+      <label>${game.title}</label> <br>
+      <label>${game.description}</label> <br>
+      <label>${game.coverImage}</label> <br>
+      <label>${game.state}</label> <br>
+      <label>${game.fileName}</label> <br>
+      
+      <a href="adminGameModify.do?gameNo=${game.gameNo}" class="btn btn-primary" id="toggleNavPosition" >수정</a> 
+		&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="adminGameList.do">뒤로</a><br><br>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->

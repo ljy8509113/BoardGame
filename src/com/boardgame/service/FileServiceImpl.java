@@ -3,6 +3,7 @@ package com.boardgame.service;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 
@@ -167,25 +168,20 @@ public class FileServiceImpl implements FileService {
 	}
 
 	@Override
-	public String getImgPath(HttpServletRequest request, String filename) {
+	public String getPath(HttpServletRequest request, String directory, String filename) throws UnsupportedEncodingException {
 		// 컨텍스트 경로 가져오기 (localhost:8080/Spring16BoardMVCMyBatisFileUpload)
 		String contextPath = request.getContextPath();
 		
 		// 파일의 확장자 추출
 		if (filename != null && !filename.trim().isEmpty()) {
-			int idx = filename.lastIndexOf(".");
-			String ext = filename.substring(idx, filename.length());
-
-			// 만약 JPG 그림파일이면 파일경로를 리턴
-			switch (ext) {
-			case ".jpg":
-			case ".jpeg":
-			case ".png":
-				return contextPath + Common.IMAGE_DIRECTORY + "/" + filename;
-			}
+//			int idx = filename.lastIndexOf(".");
+//			String ext = filename.substring(idx, filename.length());
+			
+			filename = URLDecoder.decode(filename, "UTF-8");
+			return contextPath + directory + "/" + filename;
+			
 		}
 		
-		// 그림파일이 아니면 null값 리턴
 		return null;
 	}
 }

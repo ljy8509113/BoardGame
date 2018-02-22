@@ -12,4 +12,6 @@ public interface GameDao{
 	public List<Game> selectAll() throws CustomException;
 	
 	public void insert(Game game) throws CustomException;
+	
+	public void update(Game game) throws CustomException;
 }

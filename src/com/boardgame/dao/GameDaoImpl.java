@@ -50,4 +50,14 @@ public class GameDaoImpl implements GameDao{
 			throw new CustomException(ErrorMessage.ERROR_DB, e.getMessage());
 		}
 	}
+
+	@Override
+	public void update(Game game) throws CustomException {
+		
+		try {
+			session.update(MAPPER_NS + ".update-game", game);
+		}catch(Exception e) {
+			throw new CustomException(ErrorMessage.ERROR_DB, e.getMessage());
+		}
+	}
 }

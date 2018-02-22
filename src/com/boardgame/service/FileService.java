@@ -1,5 +1,7 @@
 package com.boardgame.service;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,7 +22,7 @@ public interface FileService {
 	public void remove(HttpServletRequest request, String filename, String dir) throws CustomException;
 	
 	// 파일 저장 경로 + 이미지 파일명
-	public String getImgPath(HttpServletRequest request, String filename);
+	public String getPath(HttpServletRequest request, String directory, String filename) throws UnsupportedEncodingException;
 	
 //	// 파일 저장 폴더 경로 가져오기(ContextPath + /upload)
 //	public String getUploadPath(HttpServletRequest request);
