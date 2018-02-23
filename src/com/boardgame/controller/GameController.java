@@ -84,6 +84,7 @@ public class GameController {
 			String title, 
 			String description, 
 			String state,
+			String version,
 			@RequestParam("coverImage") MultipartFile imageFile,
 			@RequestParam("gameFile") MultipartFile gameFile) {
 
@@ -96,7 +97,7 @@ public class GameController {
 		}else {
 			// 클라이언트로부터 전달받은 값으로 객체 생성
 			try {
-				Game game = new Game(null, description, title, null, state, null);
+				Game game = new Game(null, description, title, null, state, null, version);
 					
 				String imageName = fileService.add(req, imageFile, Common.IMAGE_DIRECTORY);
 				if(imageName != null)
@@ -149,6 +150,7 @@ public class GameController {
 			String title, 
 			String description, 
 			String state,
+			String version,
 			@RequestParam("coverImage") MultipartFile imageFile,
 			@RequestParam("gameFile") MultipartFile gameFile) {
 		
@@ -165,6 +167,7 @@ public class GameController {
 				game.setTitle(title);
 				game.setDescription(description);
 				game.setState(state);
+				game.setVersion(version);
 				
 				String imageName = fileService.add(req, imageFile, Common.IMAGE_DIRECTORY);
 				if(imageName != null) {

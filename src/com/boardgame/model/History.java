@@ -1,6 +1,10 @@
 package com.boardgame.model;
 
-public class History {
+import java.io.Serializable;
+
+public class History implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	private int userNo;
 	private int total;
 	private int win;

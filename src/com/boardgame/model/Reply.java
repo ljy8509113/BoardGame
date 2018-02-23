@@ -1,8 +1,11 @@
 package com.boardgame.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Reply {
+public class Reply implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	private int repleNo;		//넘버
 	private int userNo;		//외래키 user
 	private String content;		//내용

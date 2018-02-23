@@ -59,6 +59,7 @@
 					<label> 게임명 : <input type="text" name="title" value="${game.title}"></label><br>
 					<label> 상태 : <input type="text" name="state" value="${game.state}"> (O:서비스중, C:서비스종료, D:개발중)</label><br>
 					<label> 설명 : <textarea rows="10" cols="50" name="description">${game.description}</textarea></label><br> 
+					<label> 버전 : <input type="text" name="version" value="${game.version}"></label><br>
 					<label> 대표이미지 : <input type="file" name="coverImage" value="${game.coverImage}"></label><br>
 					<label> Game File : <input type="file" name="gameFile" value="${game.fileName}"></label><br><br>
 					<input type="submit" class="btn btn-primary" id="toggleNavPosition" value="등록"> 

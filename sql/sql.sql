@@ -4,7 +4,8 @@ description text null,
 title varchar(150) not null,
 cover_image varchar(150) null,
 state varchar(3) not null,
-file_name varchar(150)
+file_name varchar(150),
+version varchar(10) null,
 PRIMARY KEY (game_no) ) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 create table user(
@@ -15,6 +16,18 @@ nickname varchar(50) not null,
 birthday date null,
 join_date date not null,
 PRIMARY KEY (user_no)) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+CREATE TABLE boardgame.authority (
+	id	INT NOT NULL PRIMARY KEY,
+	name VARCHAR(30) NOT NULL
+) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+CREATE TABLE boardgame.users_authority(
+	users_no INT NOT NULL,
+	authority_id INT NOT NULL,
+	FOREIGN KEY (users_no) REFERENCES boardgame.user(user_no),
+	FOREIGN KEY (authority_id) REFERENCES boardgame.authority(id)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 create table history(
 user_no int not null,  	

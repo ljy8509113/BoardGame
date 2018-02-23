@@ -1,19 +1,25 @@
 package com.boardgame.model;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
-public class User {
+public class User implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	private int userNo;		//넘버
 	private String email;		//가입 이메일(id)
 	private String password;	//비밀번호
 	private String nickname;	//보여질 닉네임
 	private Date birthday;		//생일 - 추후 연령대별 통계 쓸일 있으면 사용
 	private Date joinDate;		//가입일
+	private Integer failCount;	//로그인 실패 횟수
+	private Set<Authority> authorities;	// 해당 사용자의 권한 목록
 	
 	public User() {		
 	}
 	
-	public User(int userNo, String email, String password, String nickname, Date birthday, Date joinDate) {
+	public User(int userNo, String email, String password, String nickname, Date birthday, Date joinDate, Integer failCount) {
 		super();
 		this.userNo = userNo;
 		this.email = email;
@@ -21,13 +27,14 @@ public class User {
 		this.nickname = nickname;
 		this.birthday = birthday;
 		this.joinDate = joinDate;
+		this.failCount = failCount;
 	}
 
-	public int getuserNo() {
+	public int getUserNo() {
 		return userNo;
 	}
 
-	public void setuserNo(int userNo) {
+	public void setUserNo(int userNo) {
 		this.userNo = userNo;
 	}
 
@@ -63,12 +70,28 @@ public class User {
 		this.birthday = birthday;
 	}
 
-	public Date getjoinDate() {
+	public Date getJoinDate() {
 		return joinDate;
 	}
 
-	public void setjoinDate(Date joinDate) {
+	public void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
+	}
+
+	public Integer getFailCount() {
+		return failCount;
+	}
+
+	public void setFailCount(Integer failCount) {
+		this.failCount = failCount;
+	}
+	
+	public Set<Authority> getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(Set<Authority> authorities) {
+		this.authorities = authorities;
 	}
 
 	@Override
@@ -81,6 +104,8 @@ public class User {
 		result = prime * result + ((nickname == null) ? 0 : nickname.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + userNo;
+		result = prime * result + failCount;
+		result = prime * result + ((authorities == null) ? 0 : authorities.hashCode());
 		return result;
 	}
 
@@ -113,6 +138,10 @@ public class User {
 		builder.append(birthday);
 		builder.append(", joinDate=");
 		builder.append(joinDate);
+		builder.append(", failCount=");
+		builder.append(failCount);
+		builder.append(", authorities=");
+		builder.append(authorities);
 		builder.append("]");
 		return builder.toString();
 	}

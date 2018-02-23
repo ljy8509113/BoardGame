@@ -57,7 +57,8 @@
 					<div class="card-body">
 					<label> 게임명 : <input type="text" name="title"></label><br>
 					<label> 상태 : <input type="text" name="state"> (O:서비스중, C:서비스종료, D:개발중)</label><br>
-					<label> 설명 : <textarea rows="10" cols="50" name="description"></textarea></label><br> 
+					<label> 설명 : <textarea rows="10" cols="50" name="description"></textarea></label><br>
+					<label> 버전 : <input type="text" name="version"></label><br> 
 					<label> 대표이미지 : <input type="file" name="coverImage"></label><br>
 					<label> Game File : <input type="file" name="gameFile"></label><br><br>
 					<input type="submit" class="btn btn-primary" id="toggleNavPosition" value="등록"> 
