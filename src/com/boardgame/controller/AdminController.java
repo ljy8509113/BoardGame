@@ -18,10 +18,10 @@ public class AdminController {
 	@Autowired
 	FileService fileService;
 	
-	@RequestMapping(value="/adminLogin.do", method=RequestMethod.GET)
-	public String loginFrom(Model model) {
-		return "admin/admin_login";
-	}
+//	@RequestMapping(value="/adminLogin.do", method=RequestMethod.GET)
+//	public String loginFrom(Model model) {
+//		return "admin/admin_login";
+//	}
 
 //	@RequestMapping(value="/adminLogin.do",method=RequestMethod.POST)
 //	public String login(
@@ -48,17 +48,17 @@ public class AdminController {
 //		}		
 //	}
 	
-	@RequestMapping(value="/adminLogout.do", method=RequestMethod.GET)
-	public String logout(Model model) {
-
-		return "redirect:index.html";
-	}
-	
-	@RequestMapping(value="/adminMain.do", method=RequestMethod.GET)
-	public String adminMain(Model model) {
-
-		return "admin/admin_game_list";
-	}	
+//	@RequestMapping(value="/adminLogout.do", method=RequestMethod.GET)
+//	public String logout(Model model) {
+//
+//		return "redirect:index.html";
+//	}
+//	
+//	@RequestMapping(value="/adminMain.do", method=RequestMethod.GET)
+//	public String adminMain(Model model) {
+//
+//		return "admin/admin_game_list";
+//	}	
 	
 	
 }

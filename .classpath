@@ -22,6 +22,6 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/netty-all-4.1.22.Final.jar"/>
+	<classpathentry kind="lib" path="lib/netty-all-4.1.22.Final.jar" sourcepath="lib/netty-all-4.1.22.Final-sources.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

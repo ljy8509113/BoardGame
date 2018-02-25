@@ -21,43 +21,14 @@ public class UserController {
 	public String loginFrom(Model model) {
 		return "admin/admin_login";
 	}
-
-//	@RequestMapping(value="/adminLogin.do",method=RequestMethod.POST)
-//	public String login(
-//			HttpServletRequest request,
-//			String id, 
-//			String password) 
-//	{
-//		User user = null;
-//
-//		try {
-//			user = service.checkIdPw(id, password);
-//			request.setAttribute("admin", user);
-//
-//			HttpSession session = request.getSession(true);
-//			session.setAttribute("name", user.getName());
-//			session.setAttribute("id", user.getId());
-//
-//			return "admin/admin_game_list";
-//
-//		} catch (CustomException e) {
-//			// TODO Auto-generated catch block
-//			request.setAttribute("error", e.getMessage());
-//			return "admin/admin_login";
-//		}		
-//	}
 	
-	@RequestMapping(value="/adminLogout.do", method=RequestMethod.GET)
-	public String logout(Model model) {
-
-		return "redirect:index.html";
-	}
-	
-	@RequestMapping(value="/adminMain.do", method=RequestMethod.GET)
-	public String adminMain(Model model) {
-
-		return "admin/admin_game_list";
-	}	
-	
+	// 접근 제한 페이지
+		@RequestMapping(value="/access-denied.do", method=RequestMethod.GET)
+		public String accessDenied(Model model) {
+			
+			model.addAttribute("email", service.getPrincipal().getUsername());
+			
+			return "access-denied";
+		}
 	
 }

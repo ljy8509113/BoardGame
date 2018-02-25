@@ -17,6 +17,9 @@ public class GameDaoImpl implements GameDao{
 	private SqlSession session;
 	final String MAPPER_NS = Game.class.getName();
 	
+	public GameDaoImpl() {		
+	}
+	
 	public Game select(String gameNo) throws CustomException {
 		Game game = null;
 		try {

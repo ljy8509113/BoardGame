@@ -10,7 +10,7 @@
   	</settings>
   	
   	<typeAliases>
-  		<typeAlias type="com.boardgame.model.Admin" alias="Admin"/>
+  		<typeAlias type="com.boardgame.model.User" alias="User"/>
   		<typeAlias type="com.boardgame.model.Game" alias="Game"/>  		
   		<typeAlias type="com.boardgame.model.Authority" alias="Authority"/>
   	</typeAliases>

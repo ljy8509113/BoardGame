@@ -28,21 +28,33 @@ public class GameController {
 	@Autowired
 	FileService fileService;
 
-	@RequestMapping(value="/adminGameList.do", method=RequestMethod.GET)
+	@RequestMapping(value="gameList.do", method=RequestMethod.GET)
+	public String mainGameList(Model model) {
+		List<Game>list = getGameList(model);
+		model.addAttribute("list", list);
+		
+		return "game_list";
+	}
+	
+	@RequestMapping(value="/admin/adminGameList.do", method=RequestMethod.GET)
 	public String gameList(Model model) {
+		List<Game> list = getGameList(model);
+		model.addAttribute("list", list);
+		
+		return "admin/admin_game_list";
+	}
+	
+	List<Game> getGameList(Model model) {
 		List<Game> list = null;
 		try {
 			list = service.getGameList();
 		} catch (CustomException e) {
 			model.addAttribute("error", e.getMessage());
-		}
-
-		model.addAttribute("list", list);
-
-		return "admin/admin_game_list";
+		}		
+		return list;		
 	}
 	
-	@RequestMapping(value="/adminGameDetail.do", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/adminGameDetail.do", method=RequestMethod.GET)
 	public String gameDetail(Model model, HttpServletRequest request,
 	@RequestParam(value="gameNo", required=true) String gameNo) 
 	{
@@ -63,7 +75,6 @@ public class GameController {
 			System.out.println(e.getLog());
 			request.setAttribute("error", e.getMessage());
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
 			request.setAttribute("error", ErrorMessage.ERROR_INCODING);
 		}
@@ -73,13 +84,13 @@ public class GameController {
 		return "admin/admin_game_detail";
 	}
 	
-	@RequestMapping(value="/adminGameRegist.do", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/adminGameRegist.do", method=RequestMethod.GET)
 	public String addGameForm(Model model) {
 
 		return "admin/admin_game_add";
 	}
 	
-	@RequestMapping(value="/adminGameRegist.do", method=RequestMethod.POST)
+	@RequestMapping(value="/admin/adminGameRegist.do", method=RequestMethod.POST)
 	public String addGame(HttpServletRequest req, 
 			String title, 
 			String description, 
@@ -128,7 +139,7 @@ public class GameController {
 		}
 	}
 	
-	@RequestMapping(value="/adminGameModify.do", method=RequestMethod.GET)
+	@RequestMapping(value="/admin/adminGameModify.do", method=RequestMethod.GET)
 	public String modifyGameForm(Model model, @RequestParam("gameNo") String gameNo) {
 		Game game = null;
 		try {
@@ -144,7 +155,7 @@ public class GameController {
 		}
 	}
 	
-	@RequestMapping(value="/adminGameModify.do", method=RequestMethod.POST)
+	@RequestMapping(value="/admin/adminGameModify.do", method=RequestMethod.POST)
 	public String modifyGame(HttpServletRequest req, 
 			String gameNo,
 			String title, 

@@ -16,6 +16,9 @@ public class UserDaoImpl implements UserDao{
 	private SqlSession session;
 	final String MAPPER_NS = User.class.getName();
 	
+	public UserDaoImpl() {		
+	}
+	
 	public User login(String id, String password) throws CustomException {
 		try {			
 			User user = session.selectOne(MAPPER_NS + ".select-account", id);

@@ -38,7 +38,7 @@
 	<sec:http auto-config="true" use-expressions="true">
 		<sec:intercept-url pattern="/" access="permitAll" />
 		<sec:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
-		<sec:form-login login-page="/login.do"
+		<sec:form-login login-page="/adminLogin.do"
 					login-processing-url="/login-processing"
 					authentication-failure-url="/login.do?error=login"
 					username-parameter="id"

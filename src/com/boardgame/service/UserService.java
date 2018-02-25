@@ -1,6 +1,9 @@
 package com.boardgame.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import com.boardgame.dao.UserDao;
@@ -25,5 +28,14 @@ public class UserService {
 		return userDao.selectByEmail(email);
 	}
 
-	
+	public UserDetails getPrincipal() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		
+		Object principal = auth.getPrincipal();
+		if (principal instanceof UserDetails) {
+			return (UserDetails) principal;
+		}
+		
+		return null;
+	}
 }
