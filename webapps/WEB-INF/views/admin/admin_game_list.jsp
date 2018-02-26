@@ -10,30 +10,33 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Board Game Admin</title>
-  <link href="resource/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/resource/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
-  <link href="resource/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="${pageContext.request.contextPath}/resource/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
-  <link href="resource/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/resource/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
-  <link href="resource/css/sb-admin.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/resource/css/sb-admin.css" rel="stylesheet">
   
   <!-- Bootstrap core JavaScript-->
-    <script src="resource/vendor/jquery/jquery.min.js"></script>
-    <script src="resource/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resource/vendor/jquery/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resource/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
-    <script src="resource/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resource/vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
-    <script src="resource/vendor/datatables/jquery.dataTables.js"></script>
-    <script src="resource/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script src="${pageContext.request.contextPath}/resource/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="${pageContext.request.contextPath}/resource/vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
-    <script src="resource/js/sb-admin.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resource/js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
-    <script src="resource/js/sb-admin-datatables.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resource/js/sb-admin-datatables.min.js"></script>
     
   <script type="text/javascript">
   	$(document).ready(function(){
-  		$("#navDiv").load("html/menu.html");  		
+  		$("#navDiv").load("/BoardGame/html/menu.html");
+  		var path = window.location.pathname;
+		console.log(path);
+  		
   	});
   	
   	function clickCell(gameNo){

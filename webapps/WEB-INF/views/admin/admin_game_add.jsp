@@ -11,33 +11,33 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title>Board Game Admin</title>
-<link href="resource/vendor/bootstrap/css/bootstrap.min.css"
+<link href="${pageContext.request.contextPath}/resource/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 <!-- Custom fonts for this template-->
-<link href="resource/vendor/font-awesome/css/font-awesome.min.css"
+<link href="${pageContext.request.contextPath}/resource/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <!-- Page level plugin CSS-->
-<link href="resource/vendor/datatables/dataTables.bootstrap4.css"
+<link href="${pageContext.request.contextPath}/resource/vendor/datatables/dataTables.bootstrap4.css"
 	rel="stylesheet">
 <!-- Custom styles for this template-->
-<link href="resource/css/sb-admin.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resource/css/sb-admin.css" rel="stylesheet">
 
 <!-- Bootstrap core JavaScript-->
-<script src="resource/vendor/jquery/jquery.min.js"></script>
-<script src="resource/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/vendor/jquery/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Core plugin JavaScript-->
-<script src="resource/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/vendor/jquery-easing/jquery.easing.min.js"></script>
 <!-- Page level plugin JavaScript-->
-<script src="resource/vendor/datatables/jquery.dataTables.js"></script>
-<script src="resource/vendor/datatables/dataTables.bootstrap4.js"></script>
+<script src="${pageContext.request.contextPath}/resource/vendor/datatables/jquery.dataTables.js"></script>
+<script src="${pageContext.request.contextPath}/resource/vendor/datatables/dataTables.bootstrap4.js"></script>
 <!-- Custom scripts for all pages-->
-<script src="resource/js/sb-admin.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/js/sb-admin.min.js"></script>
 <!-- Custom scripts for this page-->
-<script src="resource/js/sb-admin-datatables.min.js"></script>
+<script src="${pageContext.request.contextPath}/resource/js/sb-admin-datatables.min.js"></script>
 
 <script type="text/javascript">
   	$(document).ready(function(){
-  		$("#navDiv").load("html/menu.html");  		
+  		$("#navDiv").load("/BoardGame/html/menu.html");  		
   	});
   	
   </script>
@@ -61,6 +61,7 @@
 					<label> 버전 : <input type="text" name="version"></label><br> 
 					<label> 대표이미지 : <input type="file" name="coverImage"></label><br>
 					<label> Game File : <input type="file" name="gameFile"></label><br><br>
+					<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }">
 					<input type="submit" class="btn btn-primary" id="toggleNavPosition" value="등록"> 
 					&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="adminGameList.do">취소</a>
 				</div>

@@ -96,7 +96,7 @@ public class GameController {
 			String description, 
 			String state,
 			String version,
-			@RequestParam("coverImage") MultipartFile imageFile,
+			@RequestParam("coverImage") MultipartFile coverImage,
 			@RequestParam("gameFile") MultipartFile gameFile) {
 
 		if(title == null || title.equals("")) {
@@ -110,7 +110,7 @@ public class GameController {
 			try {
 				Game game = new Game(null, description, title, null, state, null, version);
 					
-				String imageName = fileService.add(req, imageFile, Common.IMAGE_DIRECTORY);
+				String imageName = fileService.add(req, coverImage, Common.IMAGE_DIRECTORY);
 				if(imageName != null)
 					game.setCoverImage(imageName);
 				else
@@ -139,6 +139,7 @@ public class GameController {
 		}
 	}
 	
+	
 	@RequestMapping(value="/admin/adminGameModify.do", method=RequestMethod.GET)
 	public String modifyGameForm(Model model, @RequestParam("gameNo") String gameNo) {
 		Game game = null;
@@ -154,7 +155,7 @@ public class GameController {
 			return "admin/admin_game_modify";
 		}
 	}
-	
+	                              
 	@RequestMapping(value="/admin/adminGameModify.do", method=RequestMethod.POST)
 	public String modifyGame(HttpServletRequest req, 
 			String gameNo,
@@ -162,7 +163,7 @@ public class GameController {
 			String description, 
 			String state,
 			String version,
-			@RequestParam("coverImage") MultipartFile imageFile,
+			@RequestParam("coverImage") MultipartFile coverImage,
 			@RequestParam("gameFile") MultipartFile gameFile) {
 		
 		if(title == null || title.equals("")) {
@@ -180,7 +181,7 @@ public class GameController {
 				game.setState(state);
 				game.setVersion(version);
 				
-				String imageName = fileService.add(req, imageFile, Common.IMAGE_DIRECTORY);
+				String imageName = fileService.add(req, coverImage, Common.IMAGE_DIRECTORY);
 				if(imageName != null) {
 					fileService.remove(req, game.getCoverImage(), Common.IMAGE_DIRECTORY);
 					game.setCoverImage(imageName);

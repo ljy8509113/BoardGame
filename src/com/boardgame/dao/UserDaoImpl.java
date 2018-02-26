@@ -19,28 +19,11 @@ public class UserDaoImpl implements UserDao{
 	public UserDaoImpl() {		
 	}
 	
-	public User login(String id, String password) throws CustomException {
-		try {			
-			User user = session.selectOne(MAPPER_NS + ".select-account", id);
-			
-			if(user == null)
-				throw new CustomException(ErrorMessage.ERROR_ID, "");
-			
-			if(user.getPassword().equals(password))
-				return user;
-			else 
-				throw new CustomException(ErrorMessage.ERROR_LOGIN, "");
-			
-		} catch (Exception e) {
-			throw new CustomException(ErrorMessage.ERROR_DB, e.getMessage());
-		}		
-	}	
-	
 	@Override
 	public User selectByEmail(String email) throws CustomException {
 		User users = null;
 		try {
-			users = session.selectOne(MAPPER_NS + ".select-users-by-email", email);
+			users = session.selectOne(MAPPER_NS + ".select-user-by-email", email);
 			
 		} catch (Exception e) {
 			throw new CustomException(ErrorMessage.ERROR_ID, e.getMessage());

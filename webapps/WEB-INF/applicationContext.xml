@@ -40,11 +40,11 @@
 		<sec:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
 		<sec:form-login login-page="/adminLogin.do"
 					login-processing-url="/login-processing"
-					authentication-failure-url="/login.do?error=login"
-					username-parameter="id"
+					authentication-failure-url="/adminLogin.do?error=login"
+					username-parameter="email"
 					password-parameter="password" />
 					
-		<sec:access-denied-handler error-page="/access-denied.do"/>
+		<sec:access-denied-handler error-page="/adminLogin.do"/>
 		<sec:csrf />
 	</sec:http>
 	
@@ -100,5 +100,6 @@
 	<!-- MyBatis 사용을 위해 추가 2 -->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
-	</bean>
+	</bean>	 
 </beans>
+
