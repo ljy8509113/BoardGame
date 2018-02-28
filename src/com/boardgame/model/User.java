@@ -7,7 +7,7 @@ import java.util.Set;
 public class User implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	private int userNo;		//넘버
+	private Integer userNo;		//넘버
 	private String email;		//가입 이메일(id)
 	private String password;	//비밀번호
 	private String nickname;	//보여질 닉네임
@@ -19,8 +19,7 @@ public class User implements Serializable {
 	public User() {		
 	}
 	
-	public User(int userNo, String email, String password, String nickname, Date birthday, Date joinDate, Integer failCount) {
-		super();
+	public User(Integer userNo, String email, String password, String nickname, Date birthday, Date joinDate, Integer failCount) {
 		this.userNo = userNo;
 		this.email = email;
 		this.password = password;
@@ -34,7 +33,7 @@ public class User implements Serializable {
 		return userNo;
 	}
 
-	public void setUserNo(int userNo) {
+	public void setUserNo(Integer userNo) {
 		this.userNo = userNo;
 	}
 
