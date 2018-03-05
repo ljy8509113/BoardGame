@@ -13,6 +13,8 @@ select * from user;
 select * from authority;
 select * from users_authority;
 
+insert into authority(id, name) values(10, 'ADMIN');
+
 create table game(
 game_no int not null auto_increment,
 description text null,

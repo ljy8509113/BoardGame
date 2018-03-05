@@ -32,7 +32,7 @@ public class JUnitTest {
 
 	@Autowired
 	UserDao userDao;
-
+	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 
