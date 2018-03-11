@@ -6,9 +6,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.boardgame.model.Game;
 import com.boardgame.util.CustomException;
 import com.boardgame.util.ErrorMessage;
+import com.database.model.Game;
 
 @Repository
 public class GameDaoImpl implements GameDao{

@@ -12,8 +12,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.boardgame.model.Authority;
 import com.boardgame.util.CustomException;
+import com.database.model.Authority;
 
 /*
  * 각 사용자마다 권한을 설정하기 위해 아래와 같은 클래스를 작성한다.
@@ -35,7 +35,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 			 * 로그인할 때 클라이언트로부터 전달받은 아이디(email) 값을 넘겨 받아
 			 * 해당 사용자의 정보를 불러온다.
 			 */
-			com.boardgame.model.User users = service.detailByEmail(email);
+			com.database.model.User users = service.detailByEmail(email);
 			
 			/*
 			 *  해당 사용자가 존재하지 않으면
@@ -71,7 +71,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 	}
 	
 	// 사용자에게 권한을 부여하기위해 권한 목록을 리턴하는 메소드
-	private List<GrantedAuthority> getGrantedAuthorities(com.boardgame.model.User users) {
+	private List<GrantedAuthority> getGrantedAuthorities(com.database.model.User users) {
 		
 		// 최종적으로 스프링에게 전달할 리스트 (리스트 타입은 GrantedAuthority)
 		List<GrantedAuthority> auths = new ArrayList<>();

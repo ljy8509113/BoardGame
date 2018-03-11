@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.boardgame.dao.GameDao;
-import com.boardgame.model.Game;
 import com.boardgame.util.CustomException;
+import com.database.model.Game;
 
 @Service
 public class GameService {

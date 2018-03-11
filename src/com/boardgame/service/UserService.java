@@ -12,8 +12,8 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Service;
 
 import com.boardgame.dao.UserDao;
-import com.boardgame.model.User;
 import com.boardgame.util.CustomException;
+import com.database.model.User;
 
 @Service
 public class UserService {

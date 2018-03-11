@@ -2,8 +2,8 @@ package com.boardgame.dao;
 
 import java.util.List;
 
-import com.boardgame.model.Game;
 import com.boardgame.util.CustomException;
+import com.database.model.Game;
 
 public interface GameDao{
 	

@@ -1,7 +1,7 @@
 package com.boardgame.dao;
 
-import com.boardgame.model.User;
 import com.boardgame.util.CustomException;
+import com.database.model.User;
 
 
 public interface UserDao {

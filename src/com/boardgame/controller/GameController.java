@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.boardgame.common.Common;
-import com.boardgame.model.Game;
 import com.boardgame.service.FileService;
 import com.boardgame.service.GameService;
 import com.boardgame.util.CustomException;
 import com.boardgame.util.ErrorMessage;
+import com.database.model.Game;
 
 @Controller
 public class GameController {
