@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.boardgame.model.User">
+  	<resultMap type="User" id="UserResultMap">
+  		<id property="userNo" column="user_no" />
+  		<result property="email" column="email"/>
+  		<result property="password" column="password"/>
+  		<result property="nickname" column="nickname"/>
+  		<result property="birthday" column="birthday"/>
+  		<result property="failCount" column="fail_count"/>
+  		<collection property="authorities" ofType="Authority">
+  			<id property="id" column="id" />
+  			<result property="name" column="aname"/>
+  		</collection>
+  	</resultMap>
+  	
+  	<select id="select-user" parameterType="int" resultMap="UserResultMap">
+  		SELECT u.no, u.email, u.password, u.nickname, u.birthday, u.fail_count, ua.id, ua.name as "aname"
+		FROM user u,
+			(SELECT users_authority.users_no, authority.id, authority.name
+			FROM users_authority, authority
+			WHERE users_authority.authority_id = authority.id) ua
+		WHERE u.no = ua.users_no AND u.user_no = #{userNo}
+  	</select>
+  	
+  	<select id="select-user-by-email" parameterType="String" resultMap="UserResultMap">
+  		SELECT u.user_no, u.email, u.password, u.nickname, u.birthday, u.fail_count, ua.id, ua.name as "aname"
+		FROM user u,
+			(SELECT users_authority.users_no, authority.id, authority.name
+			FROM users_authority, authority
+			WHERE users_authority.authority_id = authority.id) ua
+		WHERE u.user_no = ua.users_no AND u.email = #{email}
+  	</select>
+  	
+  	<insert id="insert-user" parameterType="User" useGeneratedKeys="true" keyProperty="userNo">
+  		INSERT INTO user (email, password, nickname, birthday, join_date, fail_count) VALUES (#{email}, #{password}, #{nickname}, #{birthday}, #{joinDate}, #{failCount})
+  	</insert>
+  	
+  	<delete id="delete-all-users">
+  		DELETE FROM user
+  	</delete>
+  	
+  	<select id="count-users" resultType="int">
+  		SELECT COUNT(*) FROM user
+  	</select>
+  	
+  	<delete id="delete-all-users-authority">
+  		DELETE FROM users_authority
+  	</delete>
+  	
+  	<select id="count-users-authority" resultType="int">
+  		SELECT COUNT(*) FROM users_authority
+  	</select>
+  	
+  	<select id="select-last-insert-id" resultType="int">
+  		SELECT LAST_INSERT_ID()
+  	</select>
+  	
+  	<insert id="insert-authority" parameterType="User">
+  		INSERT INTO users_authority(users_no, authority_id) VALUES
+  		<foreach collection="authorities" item="item" separator=", ">
+  			 (#{userNo}, #{item.id})
+  		</foreach>
+  	</insert>
+  </mapper>
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  

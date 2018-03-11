@@ -14,4 +14,10 @@ public interface GameDao{
 	public void insert(Game game) throws CustomException;
 	
 	public void update(Game game) throws CustomException;
+	
+	public void deleteAll() throws CustomException;
+	
+	public Integer getCount() throws CustomException;
+	
+	public Integer selectLastInsertId() throws CustomException;
 }

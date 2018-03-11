@@ -60,4 +60,40 @@ public class GameDaoImpl implements GameDao{
 			throw new CustomException(ErrorMessage.ERROR_DB, e.getMessage());
 		}
 	}
+	
+	@Override
+	public void deleteAll() throws CustomException {
+		try {
+			session.delete(MAPPER_NS + ".delete-all-game");
+		}catch(Exception e) {
+			throw new CustomException(ErrorMessage.ERROR_DB, e.getMessage());
+		}
+	}
+
+	@Override
+	public Integer getCount() throws CustomException {
+		Integer count = null;
+		
+		try {
+			count = session.selectOne(MAPPER_NS + ".count-game");
+			
+		} catch (Exception e) {
+			throw new CustomException(ErrorMessage.ERROR_DB, e.getMessage());
+		}
+		
+		return count;
+	}
+
+	@Override
+	public Integer selectLastInsertId() throws CustomException {
+		Integer lastInsertId = null;
+		try {
+			lastInsertId = session.selectOne(MAPPER_NS + ".select-last-insert-id");
+			
+		} catch (Exception e) {
+			throw new CustomException(ErrorMessage.ERROR_DB, e.getMessage());
+		}
+		
+		return lastInsertId;
+	}
 }

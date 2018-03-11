@@ -23,6 +23,13 @@
   		WHERE game_no = #{gameNo}  
   	</update>
   	
+  	<delete id="delete-all-game">
+  		DELETE FROM game 
+  	</delete>
+  	
+  	<select id="count-game" resultType="int">
+  		SELECT COUNT(*) FROM game
+  	</select>
   </mapper>
   
   
